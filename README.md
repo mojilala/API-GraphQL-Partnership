@@ -6,15 +6,15 @@
 
 `x-api-key` header is required.
 
-#### Public Beta Key
+#### Public Key for sandbox:
 
-* The public beta key is "fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho”
-* The beta endpoint is https://api-partnerships.mojilala.com/v1_beta/graphql
+* The public key for sandbox:"fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho”
+* The endpoint is https://api-partnerships.mojilala.net/v1_sandbox/graphql
 
 #### Request a production API Key
 
 * Please send a message https://mojilala.com/partnership/
-* The production endpoint is https://api-partnerships.mojilala.com/v1_production/graphql
+* The production endpoint is https://api-partnerships.mojilala.net/v1/graphql
 
 ## Overview
 
