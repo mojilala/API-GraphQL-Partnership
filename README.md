@@ -23,12 +23,11 @@ GraphQL natively supports performing an introspection query. As our GraphQL sche
 ### Using GraphiQL
 We recommend downloading and installing the GraphiQL App. This is the same editor that the GraphQL Explorer uses.
 
-<p align="center">
-<img align="center" src="graphiql.gif" width="100%" alt="GraphiQL Usage"/>
-</p>
+* Launch GraphiQL.
+* Click Edit HTTP Headers.
+* Add `x-api-key` header with `fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho` value.
 
-
-### Using curl HTTP-speaking library
+### Using curl or HTTP-speaking library
 
 
 
