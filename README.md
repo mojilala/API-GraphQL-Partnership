@@ -1,10 +1,10 @@
-# MojiLaLa Partnership GraphQL API Documentation
+# [WIP] MojiLaLa Partnership GraphQL API Documentation
 
 12,000 original stickers by 300+ artists all over the world.
 
 ## Access and API Keys
 
-`x-api-key` is required.
+`x-api-key` header is required.
 
 #### Public Beta Key
 
@@ -26,6 +26,11 @@ We recommend downloading and installing the GraphiQL App. This is the same edito
 <p align="center">
 <img align="center" src="graphiql.gif" width="100%" alt="GraphiQL Usage"/>
 </p>
+
+
+### Using curl HTTP-speaking library
+
+
 
 ## Queries
 
