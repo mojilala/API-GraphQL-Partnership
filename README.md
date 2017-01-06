@@ -9,16 +9,23 @@
 #### Public Beta Key
 
 * The public beta key is "fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho”
-* The beta endpoint is "https://api-partnerships.mojilala.com/v1_beta/graphql"
+* The beta endpoint is https://api-partnerships.mojilala.com/v1_beta/graphql
 
 #### Request a production API Key
 
 * Please send a message https://mojilala.com/partnership/
-* The production endpoint is "https://api-partnerships.mojilala.com/v1_production/graphql"
+* The production endpoint is https://api-partnerships.mojilala.com/v1_production/graphql
 
 ## Overview
 
-The public [MojiLaLa Partnership API](http://mojilala.com/partnership-api) provides the following Queries.
+GraphQL natively supports performing an introspection query. As our GraphQL schema matures, you will automatically receive new data types as we release updates to the platform. The documentation on this repo will also be updated.
+
+### Using GraphiQL
+We recommend downloading and installing the GraphiQL App. This is the same editor that the GraphQL Explorer uses.
+
+<p align="center">
+<img align="center" src="graphiql.gif" width="100%" alt="GraphiQL Usage"/>
+</p>
 
 ## Queries
 
