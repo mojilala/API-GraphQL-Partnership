@@ -26,8 +26,23 @@ We recommend downloading and installing the GraphiQL App. This is the same edito
 * Launch GraphiQL.
 * Click Edit HTTP Headers.
 * Add `x-api-key` header with `fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho` value.
+* Enter https://api-partnerships.mojilala.net/v1_sandbox/graphql to GraphQL Endpoint box and select `GET` method.
 
 ### Using curl or HTTP-speaking library
+    
+You can make a GraphQL query by issuing a `GET` request with a `query` and `variables` params. Params must be url encoded. For example:
+
+GraphQL Query:
+```
+query { viewer { id }}
+```
+
+    
+Request:
+
+```
+curl -X GET https://api-partnerships.mojilala.net/v1_sandbox/graphql?query=query%20%7B%20viewer%20%7B%20id%20%7D%7D -H "x-api-key: fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho"
+```
 
 
 
@@ -47,8 +62,8 @@ A sticker.
 
 ##### Search stickers
 
+Example GraphQL Query:
 ```
-curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-key: fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho" -d 'query=
 {
   stickers(query: "Hello", language_code: "en"){
     edges{
@@ -59,13 +74,12 @@ curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-ke
     }
   }
 }
-'
 ```
 
 ##### Search animated stickers
 
+Example GraphQL Query:
 ```
-curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-key: fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho" -d 'query=
 {
   stickers(query: "Hello", isAnimated: true, language_code: "en"){
     edges{
@@ -76,24 +90,6 @@ curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-ke
     }
   }
 }
-'
-```
-
-##### Get stickers of specific tag
-
-```
-curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-key: fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho" -d 'query=
-{
-  stickers(taggedWith: "halloween"){
-    edges{
-      node{
-        id
-        fileUrl
-      }
-    }
-  }
-}
-'
 ```
 
 #### packages
@@ -101,8 +97,9 @@ curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-ke
 Collection of related stickers.
 
 ##### Search sticker packages
+
+Example GraphQL Query:
 ```
-curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-key: fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho" -d 'query=
 {
   packages(query: "Hello", language_code: "en"){
     edges{
@@ -116,11 +113,12 @@ curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-ke
     }
   }
 }
-'
 ```
+
 ##### Search animated sticker packages
+
+Example GraphQL Query:
 ```
-curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-key: fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho" -d 'query=
 {
   packages(query: "Hello", isAnimated: true, language_code: "en"){
     edges{
@@ -134,15 +132,14 @@ curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-ke
     }
   }
 }
-'
 ```
 
 #### featured
 
 Featured sticker packages as grouped.
 
+Example GraphQL Query:
 ```
-curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-key: fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho" -d 'query=
 {
   featured{
     edges{
@@ -163,9 +160,176 @@ curl -I https://api-partnerships.mojilala.com/v1_beta/graphql --header "x-api-ke
     }
   }
 }
-'
 ```
 
 ### Fields
 
-####    
+#### node
+Fetches an object given its ID.
+
+Example GraphQL Query:
+```
+{
+  node(id: "UGFja2FnZS0zMTg=") {
+    id
+    __typename
+    
+  }
+}
+```
+
+#### package
+
+Example GraphQL Query:
+```
+{
+  package(id: "UGFja2FnZS0zMTg=") {
+    id
+    name
+    description
+    defaultSticker{
+      id
+      fileUrl
+    }    
+  }
+}
+```
+
+#### sticker
+
+Example GraphQL Query:
+```
+{
+  sticker(id: "U3RpY2tlci04ODQx") {
+    id
+    fileUrl
+  }
+}
+```
+
+#### featuredGroup
+
+Example GraphQL Query:
+
+```
+{
+  featuredGroup(id: "RmVhdHVyZWRHcm91cC0z") {
+    id
+    name
+    packages{
+      edges{
+        node{
+          defaultSticker{
+            id
+            fileUrl
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+
+#### viewer
+Unassociated viewer object queries.
+
+
+## Pagination
+
+You can paginate the connections.
+
+### Pagination arguments
+
+
+<table class="arguments" markdown="1">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td><code>first<code></code></code></td>
+    <td><code>Int</code></td>
+    <td>
+      <p></p><p>Returns the first <em>n</em> elements from the list. Maximum 50.</p> </td>
+  </tr>
+  
+  <tr>
+    <td><code>after<code></code></code></td>
+    <td><code>String</code> </td>
+    <td>
+      <p></p> <p>Returns the elements in the list that come after the specified global ID.</p></td>
+  </tr>
+  
+  <tr>
+    <td><code>last<code></code></code></td>
+    <td><code>Int</code> </td>
+    <td>
+      <p></p><p>Returns the last <em>n</em> elements from the list. Maximum 50.</p></td>
+  </tr>
+  
+  <tr>
+    <td><code>before<code></code></code></td>
+    <td> <code>String</code> </td>
+    <td>
+      <p></p>
+<p>Returns the elements in the list that come before the specified global ID.</p> </td>
+  </tr>
+   
+  
+  </tbody>
+</table>
+
+### Pagination Info
+
+You can get pagination info with `pageInfo` field in connections.
+
+Example GraphQL Query:
+```
+{
+  stickers(query: "Hello", first: 10) {
+    pageInfo{
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {    
+      node {
+        fileUrl
+      }
+    }
+  }
+}
+```
+
+If you do not provide `first` or `last` arguments `hasNextPage` and `hasPreviousPage` returns `false` all the time. It means if you want to use pagination you must provide `first` or `last` arguments.
+
+### Total Count
+
+You can get total nodes count of your query with `totalCount` field in connection. `totalCount` type is `Int`
+
+Example GraphQL Query:
+```
+{
+  stickers(query: "Hello", first: 10) {
+    totalCount
+    pageInfo{
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {    
+      node {
+        fileUrl
+      }
+    }
+  }
+}
+```
