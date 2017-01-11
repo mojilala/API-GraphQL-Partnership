@@ -16,17 +16,17 @@
 
 #### Endpoint
 
-* The endpoint is https://api-partnerships.mojilala.net/v1/graphql
+* The endpoint is http://api-partnerships.mojilala.net/v1/graphql
 
 ## Overview
 
-GraphQL natively supports performing an introspection query. As our GraphQL schema matures, you will automatically receive new data types as we release updates to the platform. The documentation on this repo will also be updated.
+GraphQL natively supports performing an introspection query. As our GraphQL schema matures, you will automatically receive new data types as we release updates to the platform. <a target="_blank" href="http://graphql.org/">More about GraphQL</a> 
 
 ### Using GraphiQL App
 We recommend downloading and installing the GraphiQL App. This is the same editor that the GraphQL Explorer uses.
 
 * Launch GraphiQL.
-* Enter https://api-partnerships.mojilala.net/v1/graphql?api_key=fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho to GraphQL Endpoint box and select `GET` method.
+* Enter http://api-partnerships.mojilala.net/v1/graphql?api_key=fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho to GraphQL Endpoint box and select `GET` method.
 
 
 ### GraphQL Explorer
@@ -59,339 +59,27 @@ The root type defines how GraphQL operations begin. It is the entry point to con
 
 For more information, see the [GraphQL spec](https://facebook.github.io/graphql/#sec-Type-System).
 
+<p align="center">
+<img align="center" src="graphiql.gif" width="100%" alt="MojiLaLa API"/>
+</p>
 
+
++ [Featured Sticker Packages](#featured-sticker-packages)
++ [Featured Sticker Packages by FeaturedGroup id](#featured-sticker-packages-by-featuredgroup-id)
 + [Search Stickers](#search-stickers)
 + [Sticker by id](#sticker-by-id)
 + [Search Sticker Packages](#search-sticker-packages)
 + [Package by id](#package-by-id)
-+ [Featured Sticker Packages](#featured-sticker-packages)
++ [Get stickers of Package](#get-stickers-of-package)
 + [Pagination](#pagination)
 
 
-### Search Stickers
-
-Arguments
-
-<table class="arguments" markdown="1">
-  <thead>
-    <tr>
-      <th>Argument</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required</th>  
-    </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td><code>query</code></td>
-    <td><code>String</code></td>
-    <td>
-      <p></p><p>Search query term or phrase.</p> </td>
-    <td>Yes</td>
-  </tr>
-  
-  <tr>
-      <td><code>isAnimated</code></td>
-      <td><code>Boolean</code></td>
-      <td>
-        <p></p><p>Filter animated stickers.</p> </td>
-      <td>Yes</td>
-    </tr>
-  
-  <tr>
-    <td><code>language_code</code></td>
-    <td><code>String</code> </td>
-    <td>
-      <p></p> <p>For better search result.</p></td>
-    <td>No</td>
-  </tr>  
-  </tbody>
-</table>
-
-Example GraphQL Queries:
-
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
-```
-{
-  stickers(query: "Hello", language_code: "en"){
-    edges{
-      node{
-        id
-        fileUrl
-      }
-    }
-  }
-}
-```
-
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20isAnimated%3A%20true%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
-```
-{
-  stickers(query: "Hello", isAnimated: true, language_code: "en"){
-    edges{
-      node{
-        id
-        fileUrl
-      }
-    }
-  }
-}
-```
-
-Sample Response:
-      
-```json
-{
-  "data": {
-    "stickers": {
-      "edges": [
-        {
-          "node": {
-            "id": "U3RpY2tlci0xNTU4Mw==",
-            "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUzuxRovN4w+dB8SrqxyvTJGLmL+anEqAhyVJaWBfsQNk=.png"
-          }
-        },
-        {
-          "node": {
-            "id": "U3RpY2tlci0xNTcyNw==",
-            "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUY6WpWPLHkXT+O8SDzaIgF2cw6D62z7gNAGgd7PRICZg=.png"
-          }
-        }        
-      ]
-    }
-  }
-}
-```
-
-
-### Sticker by id
-
-Arguments
-
-<table class="arguments" markdown="1">
-  <thead>
-    <tr>
-      <th>Argument</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required</th>  
-    </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td><code>id</code></td>
-    <td><code>ID</code></td>
-    <td>
-      <p></p><p>id of Sticker</p> </td>
-    <td>Yes</td>
-  </tr>
-  
-  </tbody>
-</table>
-
-Example GraphQL Query:
-
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20sticker(id%3A%20%22U3RpY2tlci0xNTU4Mw%3D%3D%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20fileUrl%0A%20%20%7D%0A%7D%0A)
-```
-{
-  sticker(id: "U3RpY2tlci0xNTU4Mw==") {
-    id
-    fileUrl
-  }
-}
-```
-
-Sample Response:
-
-```json
-{
-  "data": {
-    "sticker": {
-      "id": "U3RpY2tlci0xNTU4Mw==",
-      "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUzuxRovN4w+dB8SrqxyvTJGLmL+anEqAhyVJaWBfsQNk=.png"
-    }
-  }
-}
-```
-
-
-### Search Sticker Packages
-
-Arguments
-
-<table class="arguments" markdown="1">
-  <thead>
-    <tr>
-      <th>Argument</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required</th>  
-    </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td><code>query</code></td>
-    <td><code>String</code></td>
-    <td>
-      <p></p><p>Search query term or phrase.</p> </td>
-    <td>Yes</td>
-  </tr>
-  
-  <tr>
-      <td><code>isAnimated</code></td>
-      <td><code>Boolean</code></td>
-      <td>
-        <p></p><p>Filter animated sticker packages.</p> </td>
-      <td>Yes</td>
-    </tr>
-  
-  <tr>
-    <td><code>language_code</code></td>
-    <td><code>String</code> </td>
-    <td>
-      <p></p> <p>For better search result.</p></td>
-    <td>No</td>
-  </tr>  
-  </tbody>
-</table>
-
-Example GraphQL Queries:
-
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20packages(query%3A%20%22Hello%22%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
-```
-{
-  packages(query: "Hello", language_code: "en"){
-    edges{
-      node{
-        id
-        defaultSticker{
-          id
-          fileUrl
-        }
-      }
-    }
-  }
-}
-```
-
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20packages(query%3A%20%22Hello%22%2C%20isAnimated%3A%20true%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
-```
-{
-  packages(query: "Hello", isAnimated: true, language_code: "en"){
-    edges{
-      node{
-        id
-        defaultSticker{
-          id
-          fileUrl
-        }
-      }
-    }
-  }
-}
-```
-
-Sample Response:
-      
-```json
-{
-  "data": {
-    "packages": {
-      "edges": [
-        {
-          "node": {
-            "id": "UGFja2FnZS0xMjg3",
-            "defaultSticker": {
-              "id": "U3RpY2tlci0yMDY5OQ==",
-              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUFPnOAOGky+SUvKyFd3Jca/5RlZb/vLdPlVBj0XDiNB4=.png"
-            }
-          }
-        },
-        {
-          "node": {
-            "id": "UGFja2FnZS04NTQ=",
-            "defaultSticker": {
-              "id": "U3RpY2tlci0xMzc3OQ==",
-              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUCRfep9RoiQaeT6xWZPxwquUDg68KjiCv3b0TjqiIHD0=.png"
-            }
-          }
-        }
-      ]
-    }
-  }
-}
-```
-
-
-### Package by id
-
-Arguments
-
-<table class="arguments" markdown="1">
-  <thead>
-    <tr>
-      <th>Argument</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required</th>  
-    </tr>
-  </thead>
-  <tbody>
-  
-  <tr>
-    <td><code>id</code></td>
-    <td><code>ID</code></td>
-    <td>
-      <p></p><p>id of Package</p> </td>
-    <td>Yes</td>
-  </tr>
-  
-  </tbody>
-</table>
-
-Example GraphQL Query:
-
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20package(id%3A%20%22UGFja2FnZS0xMjg3%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20description%0A%20%20%20%20defaultSticker%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20fileUrl%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
-```
-{
-  package(id: "UGFja2FnZS0xMjg3") {
-    id
-    name
-    description
-    defaultSticker{
-      id
-      fileUrl
-    }
-  }
-}
-```
-
-Sample Response:
-
-```json
-{
-  "data": {
-    "package": {
-      "id": "UGFja2FnZS0xMjg3",
-      "name": "President Obama 2",
-      "description": "アメリカへ行ってみたくて、オバマさんに会えるなら、本当にいいことですね。＾＾",
-      "defaultSticker": {
-        "id": "U3RpY2tlci0yMDY5OQ==",
-        "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUFPnOAOGky+SUvKyFd3Jca/5RlZb/vLdPlVBj0XDiNB4=.png"
-      }
-    }
-  }
-}
-```
 
 ### Featured Sticker Packages
 
 Example GraphQL Queries:
 
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20featured%7B%0A%20%20%20%20edges%7B%0A%20%20%20%20%20%20node%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20packages%7B%0A%20%20%20%20%20%20%20%20%20%20edges%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20node%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20defaultSticker%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20id%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+
 ```
 {
   featured{
@@ -414,6 +102,7 @@ Example GraphQL Queries:
   }
 }
 ```
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20featured%7B%0A%20%20%20%20edges%7B%0A%20%20%20%20%20%20node%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20packages%7B%0A%20%20%20%20%20%20%20%20%20%20edges%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20node%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20defaultSticker%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20id%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">See in Explorer</a>
 
 Sample Response:
       
@@ -512,7 +201,7 @@ Sample Response:
 }
 ```
 
-### Featured Group by id
+### Featured Sticker Packages by FeaturedGroup id
 
 Arguments
 
@@ -540,7 +229,6 @@ Arguments
 
 Example GraphQL Query:
 
-[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20featuredGroup(id%3A%20%22RmVhdHVyZWRHcm91cC0z%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20packages(first%3A%202)%20%7B%0A%20%20%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20description%0A%20%20%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 ```
 {
   featuredGroup(id: "RmVhdHVyZWRHcm91cC0z") {
@@ -562,6 +250,7 @@ Example GraphQL Query:
   }
 }
 ```
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20featuredGroup(id%3A%20%22RmVhdHVyZWRHcm91cC0z%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20packages(first%3A%202)%20%7B%0A%20%20%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20description%0A%20%20%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A">See in Explorer</a>
 
 Sample Response:
 
@@ -601,6 +290,331 @@ Sample Response:
   }
 }
 ```
+
+
+### Search Stickers
+
+Arguments
+
+<table class="arguments" markdown="1">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>  
+    </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td><code>query</code></td>
+    <td><code>String</code></td>
+    <td>
+      <p></p><p>Search query term or phrase.</p> </td>
+    <td>Yes</td>
+  </tr>
+  
+  <tr>
+      <td><code>isAnimated</code></td>
+      <td><code>Boolean</code></td>
+      <td>
+        <p></p><p>Filter animated stickers.</p> </td>
+      <td>Yes</td>
+    </tr>
+  
+  <tr>
+    <td><code>language_code</code></td>
+    <td><code>String</code> </td>
+    <td>
+      <p></p> <p>For better search result.</p></td>
+    <td>No</td>
+  </tr>  
+  </tbody>
+</table>
+
+Example GraphQL Queries:
+
+```
+{
+  stickers(query: "Hello", language_code: "en"){
+    edges{
+      node{
+        id
+        fileUrl
+      }
+    }
+  }
+}
+```
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A">See in Explorer</a>
+
+
+```
+{
+  stickers(query: "Hello", isAnimated: true, language_code: "en"){
+    edges{
+      node{
+        id
+        fileUrl
+      }
+    }
+  }
+}
+```
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20isAnimated%3A%20true%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A">See in Explorer</a>
+
+
+Sample Response:
+      
+```json
+{
+  "data": {
+    "stickers": {
+      "edges": [
+        {
+          "node": {
+            "id": "U3RpY2tlci0xNTU4Mw==",
+            "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUzuxRovN4w+dB8SrqxyvTJGLmL+anEqAhyVJaWBfsQNk=.png"
+          }
+        },
+        {
+          "node": {
+            "id": "U3RpY2tlci0xNTcyNw==",
+            "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUY6WpWPLHkXT+O8SDzaIgF2cw6D62z7gNAGgd7PRICZg=.png"
+          }
+        }        
+      ]
+    }
+  }
+}
+```
+
+
+### Sticker by id
+
+Arguments
+
+<table class="arguments" markdown="1">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>  
+    </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td><code>id</code></td>
+    <td><code>ID</code></td>
+    <td>
+      <p></p><p>id of Sticker</p> </td>
+    <td>Yes</td>
+  </tr>
+  
+  </tbody>
+</table>
+
+Example GraphQL Query:
+
+```
+{
+  sticker(id: "U3RpY2tlci0xNTU4Mw==") {
+    id
+    fileUrl
+  }
+}
+```
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20sticker(id%3A%20%22U3RpY2tlci0xNTU4Mw%3D%3D%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20fileUrl%0A%20%20%7D%0A%7D%0A">See in Explorer</a>
+
+Sample Response:
+
+```json
+{
+  "data": {
+    "sticker": {
+      "id": "U3RpY2tlci0xNTU4Mw==",
+      "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUzuxRovN4w+dB8SrqxyvTJGLmL+anEqAhyVJaWBfsQNk=.png"
+    }
+  }
+}
+```
+
+
+### Search Sticker Packages
+
+Arguments
+
+<table class="arguments" markdown="1">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>  
+    </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td><code>query</code></td>
+    <td><code>String</code></td>
+    <td>
+      <p></p><p>Search query term or phrase.</p> </td>
+    <td>Yes</td>
+  </tr>
+  
+  <tr>
+      <td><code>isAnimated</code></td>
+      <td><code>Boolean</code></td>
+      <td>
+        <p></p><p>Filter animated sticker packages.</p> </td>
+      <td>Yes</td>
+    </tr>
+  
+  <tr>
+    <td><code>language_code</code></td>
+    <td><code>String</code> </td>
+    <td>
+      <p></p> <p>For better search result.</p></td>
+    <td>No</td>
+  </tr>  
+  </tbody>
+</table>
+
+Example GraphQL Queries:
+
+
+```
+{
+  packages(query: "Hello", language_code: "en"){
+    edges{
+      node{
+        id
+        defaultSticker{
+          id
+          fileUrl
+        }
+      }
+    }
+  }
+}
+```
+
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20packages(query%3A%20%22Hello%22%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A">See in Explorer</a>
+
+```
+{
+  packages(query: "Hello", isAnimated: true, language_code: "en"){
+    edges{
+      node{
+        id
+        defaultSticker{
+          id
+          fileUrl
+        }
+      }
+    }
+  }
+}
+```
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20packages(query%3A%20%22Hello%22%2C%20isAnimated%3A%20true%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A">See in Explorer</a>
+
+Sample Response:
+      
+```json
+{
+  "data": {
+    "packages": {
+      "edges": [
+        {
+          "node": {
+            "id": "UGFja2FnZS0xMjg3",
+            "defaultSticker": {
+              "id": "U3RpY2tlci0yMDY5OQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUFPnOAOGky+SUvKyFd3Jca/5RlZb/vLdPlVBj0XDiNB4=.png"
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "UGFja2FnZS04NTQ=",
+            "defaultSticker": {
+              "id": "U3RpY2tlci0xMzc3OQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUCRfep9RoiQaeT6xWZPxwquUDg68KjiCv3b0TjqiIHD0=.png"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+
+### Package by id
+
+Arguments
+
+<table class="arguments" markdown="1">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>  
+    </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td><code>id</code></td>
+    <td><code>ID</code></td>
+    <td>
+      <p></p><p>id of Package</p> </td>
+    <td>Yes</td>
+  </tr>
+  
+  </tbody>
+</table>
+
+Example GraphQL Query:
+
+```
+{
+  package(id: "UGFja2FnZS0xMjg3") {
+    id
+    name
+    description
+    defaultSticker{
+      id
+      fileUrl
+    }
+  }
+}
+```
+
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20package(id%3A%20%22UGFja2FnZS0xMjg3%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20description%0A%20%20%20%20defaultSticker%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20fileUrl%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">See in Explorer</a>
+Sample Response:
+
+```json
+{
+  "data": {
+    "package": {
+      "id": "UGFja2FnZS0xMjg3",
+      "name": "President Obama 2",
+      "description": "アメリカへ行ってみたくて、オバマさんに会えるなら、本当にいいことですね。＾＾",
+      "defaultSticker": {
+        "id": "U3RpY2tlci0yMDY5OQ==",
+        "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUFPnOAOGky+SUvKyFd3Jca/5RlZb/vLdPlVBj0XDiNB4=.png"
+      }
+    }
+  }
+}
+```
+
 
 ## Pagination
 
