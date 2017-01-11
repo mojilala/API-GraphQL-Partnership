@@ -2,6 +2,10 @@
 
 12,000 original stickers by 300+ artists all over the world.
 
+<p align="center">
+<img align="center" src="graphiql.gif" width="100%" alt="MojiLaLa API"/>
+</p>
+
 ## Access and API Keys
 
 `api_key` param is required.
@@ -58,10 +62,6 @@ Every GraphQL schema has a root type for both queries and mutations.
 The root type defines how GraphQL operations begin. It is the entry point to constructing GraphQL queries.
 
 For more information, see the [GraphQL spec](https://facebook.github.io/graphql/#sec-Type-System).
-
-<p align="center">
-<img align="center" src="graphiql.gif" width="100%" alt="MojiLaLa API"/>
-</p>
 
 
 + [Featured Sticker Packages](#featured-sticker-packages)
