@@ -22,11 +22,16 @@
 
 GraphQL natively supports performing an introspection query. As our GraphQL schema matures, you will automatically receive new data types as we release updates to the platform. The documentation on this repo will also be updated.
 
-### Using GraphiQL
+### Using GraphiQL App
 We recommend downloading and installing the GraphiQL App. This is the same editor that the GraphQL Explorer uses.
 
 * Launch GraphiQL.
 * Enter https://api-partnerships.mojilala.net/v1/graphql?api_key=fCwSnMW0cR9BqTdrgWODZ1SdqWSmzAxA4NVu3Uho to GraphQL Endpoint box and select `GET` method.
+
+
+### GraphQL Explorer
+
+* Visit http://api-partnerships.mojilala.net/v1/explorer.
 
 ### Using curl or HTTP-speaking library
     
@@ -106,6 +111,7 @@ Arguments
 
 Example GraphQL Queries:
 
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 ```
 {
   stickers(query: "Hello", language_code: "en"){
@@ -119,6 +125,7 @@ Example GraphQL Queries:
 }
 ```
 
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20isAnimated%3A%20true%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 ```
 {
   stickers(query: "Hello", isAnimated: true, language_code: "en"){
@@ -177,7 +184,7 @@ Arguments
     <td><code>id</code></td>
     <td><code>ID</code></td>
     <td>
-      <p></p><p>id of sticker</p> </td>
+      <p></p><p>id of Sticker</p> </td>
     <td>Yes</td>
   </tr>
   
@@ -186,6 +193,7 @@ Arguments
 
 Example GraphQL Query:
 
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20sticker(id%3A%20%22U3RpY2tlci0xNTU4Mw%3D%3D%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20fileUrl%0A%20%20%7D%0A%7D%0A)
 ```
 {
   sticker(id: "U3RpY2tlci0xNTU4Mw==") {
@@ -252,6 +260,7 @@ Arguments
 
 Example GraphQL Queries:
 
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20packages(query%3A%20%22Hello%22%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 ```
 {
   packages(query: "Hello", language_code: "en"){
@@ -268,6 +277,7 @@ Example GraphQL Queries:
 }
 ```
 
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20packages(query%3A%20%22Hello%22%2C%20isAnimated%3A%20true%2C%20language_code%3A%20%22en%22)%20%7B%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
 ```
 {
   packages(query: "Hello", isAnimated: true, language_code: "en"){
@@ -335,7 +345,7 @@ Arguments
     <td><code>id</code></td>
     <td><code>ID</code></td>
     <td>
-      <p></p><p>id of package</p> </td>
+      <p></p><p>id of Package</p> </td>
     <td>Yes</td>
   </tr>
   
@@ -344,6 +354,7 @@ Arguments
 
 Example GraphQL Query:
 
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20package(id%3A%20%22UGFja2FnZS0xMjg3%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20description%0A%20%20%20%20defaultSticker%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20fileUrl%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 ```
 {
   package(id: "UGFja2FnZS0xMjg3") {
@@ -376,6 +387,220 @@ Sample Response:
 }
 ```
 
+### Featured Sticker Packages
+
+Example GraphQL Queries:
+
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20featured%7B%0A%20%20%20%20edges%7B%0A%20%20%20%20%20%20node%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20packages%7B%0A%20%20%20%20%20%20%20%20%20%20edges%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20node%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20defaultSticker%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20id%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
+```
+{
+  featured{
+    edges{
+      node{
+        name
+        packages{
+          edges{
+            node{
+              name
+              defaultSticker{
+                id              
+                fileUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Sample Response:
+      
+```json
+{
+  "data": {
+    "featured": {
+      "edges": [
+        {
+          "node": {
+            "id": "RmVhdHVyZWRHcm91cC0z",
+            "name": "Popular",
+            "packages": {
+              "edges": [
+                {
+                  "node": {
+                    "name": "Miawsy",
+                    "defaultSticker": {
+                      "id": "U3RpY2tlci0xMDk5MQ==",
+                      "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUc3/bVeAiynXfh59ENFa423TK8XlOjQK0buO5vXMheSE=.png"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "name": "Smiley Upgrade",
+                    "defaultSticker": {
+                      "id": "U3RpY2tlci0xNjMxMw==",
+                      "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUE2KPdFPWOWiZjzUK7hZf8hgYP8n9bVQ0uVyXgYhmyKU=.png"
+                    }
+                  }
+                }                
+              ]
+            }
+          }
+        },        
+        {
+          "node": {
+            "id": "RmVhdHVyZWRHcm91cC00Nw==",
+            "name": "Animated Stickers",
+            "packages": {
+              "edges": [
+                {
+                  "node": {
+                    "name": "Cute Little Wizard Stickers (Animated)",
+                    "defaultSticker": {
+                      "id": "U3RpY2tlci0xMTM3MA==",
+                      "fileUrl": "https://cdn-stickers.mojilala.com/cld/3B2OheFn7op0r8JGS0RAG61el9LYUBQi03Dtzf5+YAES70YZ7CrWvAOFHkh19romKoetcYoQRp9BmgA1Rj0/AYAAZkyLf1PpoTbtQuOiJz1DaIhXchObK+h4RcR7vFDFQu6DLyOWn7YDvk0CznyFxsodxcv5LNvlukRa/6qOiwr76PBjpiMliu7juh2KTYBys36VDaup2U1GC2NebfLhwJRPp63iwDXMSQhvgTYvW+J0dAJadrgfBBR8k3zmHx1tDBxIH1j8pFa3NFchQh/EwREFxLEB+2gRMXQaJDMMwjxS/cXLn0XWd2p+w1qnA+2gs7+3l1xMZMKSzU2KIDkMOn4ScydnDpEW13tisLHCo4Ubyy7F5WWkCv7IMdHMZ9PzzhJgYhCiJlIdqwgCwwuDkpaU6FsIAhPNuRsAQPrLBaOTpqp7S6G1HPC/3qBcrvRLkMzJg1dcTE8wjhGkyYgrFaucFShqL2y9JnT3KM2pQqc=.png"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "name": "NERDY BUNNY (Animated)",
+                    "defaultSticker": {
+                      "id": "U3RpY2tlci05NTQ1",
+                      "fileUrl": "https://cdn-stickers.mojilala.com/cld/3B2OheFn7op0r8JGS0RAG61el9LYUBQi03Dtzf5+YAES70YZ7CrWvAOFHkh19romesb1rdMBNgLjzI3a66Z8wB4jmP/HgqY53CDINsU0QSgDZwxSf8h7UBqKwoo1q4e6ADmk2FplCDd4YSLEdPE8wc6htNMhXvJ5c4PBSxPmvxc+oahjwTEH/4UmAjVDVmuiKkq36zMzWaE5a+ZBsOVGmCaAFf4nwqIa5+R2b8/JPpc4EXJosnn/sY8s5+fyR6D40LCswdwG1pZ7iu2l70tzSvUYm3xTWH0/0k1jkXFE12hYXJDzw2A7dcUvuYm/M81l4P7gXdBYro+8DFz1xqszh6emqfT88LGJTHke0YL4AC6erinQ2qPtBQPwSS13Bg49RomhtmVa7+OnurwVjeTgVVo1+ju0Qg8gLzFTtByVaUE51G9NrwKFi68Oym+F8u+Cmh4dfS8zL0QQooI+pa4VeB8uMi3DG1LNe7git/5m6RQ=.png"
+                    }
+                  }
+                }                
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "RmVhdHVyZWRHcm91cC02NQ==",
+            "name": "Holidays",
+            "packages": {
+              "edges": [
+                {
+                  "node": {
+                    "name": "New Year's",
+                    "defaultSticker": {
+                      "id": "U3RpY2tlci0xOTIyMg==",
+                      "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUv1ntnDI6IFbKl2/CJNkMs8ESVZTkx+Ycablgbgb31EA=.png"
+                    }
+                  }
+                },
+                {
+                  "node": {
+                    "name": "Chinese New Year",
+                    "defaultSticker": {
+                      "id": "U3RpY2tlci0xOTg2Ng==",
+                      "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU47IzZ0ARvBRuTYN+/KvOS45xPGyMmKsW5f3N+bKsZOk=.png"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+### Featured Group by id
+
+Arguments
+
+<table class="arguments" markdown="1">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>  
+    </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td><code>id</code></td>
+    <td><code>ID</code></td>
+    <td>
+      <p></p><p>id of FeaturedGroup</p> </td>
+    <td>Yes</td>
+  </tr>
+  
+  </tbody>
+</table>
+
+Example GraphQL Query:
+
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20featuredGroup(id%3A%20%22RmVhdHVyZWRHcm91cC0z%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20packages(first%3A%202)%20%7B%0A%20%20%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20description%0A%20%20%20%20%20%20%20%20%20%20defaultSticker%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+```
+{
+  featuredGroup(id: "RmVhdHVyZWRHcm91cC0z") {
+    id
+    name
+    packages(first: 2){
+      edges{
+        node{
+          id
+          name
+          description
+          defaultSticker{
+            id
+            fileUrl
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Sample Response:
+
+```json
+{
+  "data": {
+    "featuredGroup": {
+      "id": "RmVhdHVyZWRHcm91cC0z",
+      "name": "Popular",
+      "packages": {
+        "edges": [
+          {
+            "node": {
+              "id": "UGFja2FnZS03MTU=",
+              "name": "Miawsy",
+              "description": "Hi... I'm Miawsy! Let's join and share its daily life!",
+              "defaultSticker": {
+                "id": "U3RpY2tlci0xMDk5MQ==",
+                "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUc3/bVeAiynXfh59ENFa423TK8XlOjQK0buO5vXMheSE=.png"
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "UGFja2FnZS0xMDE5",
+              "name": "Smiley Upgrade",
+              "description": "Smileys on steroids, expressing themselves like never before.",
+              "defaultSticker": {
+                "id": "U3RpY2tlci0xNjMxMw==",
+                "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUE2KPdFPWOWiZjzUK7hZf8hgYP8n9bVQ0uVyXgYhmyKU=.png"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
 
 ## Pagination
 
@@ -429,9 +654,11 @@ You can paginate the connections.
 
 ### Pagination Info
 
-You can get pagination info with `pageInfo` field in connections.
+You can get pagination info with `pageInfo` field in connections (stickers, packages, featured).
 
 Example GraphQL Query:
+
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20first%3A%2010)%20%7B%0A%20%20%20%20pageInfo%7B%0A%20%20%20%20%20%20hasNextPage%0A%20%20%20%20%20%20hasPreviousPage%0A%20%20%20%20%20%20startCursor%0A%20%20%20%20%20%20endCursor%0A%20%20%20%20%7D%0A%20%20%20%20edges%20%7B%20%20%20%20%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 ```
 {
   stickers(query: "Hello", first: 10) {
@@ -457,6 +684,8 @@ If you do not provide `first` or `last` arguments `hasNextPage` and `hasPrevious
 You can get total nodes count of your query with `totalCount` field in connection. `totalCount` type is `Int`
 
 Example GraphQL Query:
+
+[See in Explorer](http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20stickers(query%3A%20%22Hello%22%2C%20first%3A%2010)%20%7B%0A%20%20%20%20totalCount%0A%20%20%20%20pageInfo%7B%0A%20%20%20%20%20%20hasNextPage%0A%20%20%20%20%20%20hasPreviousPage%0A%20%20%20%20%20%20startCursor%0A%20%20%20%20%20%20endCursor%0A%20%20%20%20%7D%0A%20%20%20%20edges%20%7B%20%20%20%20%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)
 ```
 {
   stickers(query: "Hello", first: 10) {
