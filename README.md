@@ -1,4 +1,4 @@
-# [WIP] MojiLaLa Partnership GraphQL API Documentation
+# MojiLaLa Partnership GraphQL API Documentation
 
 12,000 original stickers by 300+ artists all over the world.
 
