@@ -616,6 +616,205 @@ Sample Response:
 ```
 
 
+### Get stickers of package
+Arguments
+
+<table class="arguments" markdown="1">
+  <thead>
+    <tr>
+      <th>Argument</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>  
+    </tr>
+  </thead>
+  <tbody>
+  
+  <tr>
+    <td><code>id</code></td>
+    <td><code>ID</code></td>
+    <td>
+      <p></p><p>id of Package</p> </td>
+    <td>Yes</td>
+  </tr>
+  
+  </tbody>
+</table>
+
+Example GraphQL Query:
+
+```
+{
+  package(id: "UGFja2FnZS0xMjg3") {
+    id
+    name
+    description
+    defaultSticker{
+      id
+      fileUrl
+    }
+    stickers{
+      edges{
+        node{
+          id
+          fileUrl
+        }
+      }
+    }
+  }
+}
+```
+
+<a target="_blank" href="http://api-partnerships.mojilala.net/v1/explorer?query=%7B%0A%20%20package(id%3A%20%22UGFja2FnZS0xMjg3%22)%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20description%0A%20%20%20%20defaultSticker%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20fileUrl%0A%20%20%20%20%7D%0A%20%20%20%20stickers%7B%0A%20%20%20%20%20%20edges%7B%0A%20%20%20%20%20%20%20%20node%7B%0A%20%20%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20%20%20fileUrl%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">See in Explorer</a>
+Sample Response:
+
+```json
+{
+  "data": {
+    "package": {
+      "id": "UGFja2FnZS0xMjg3",
+      "name": "President Obama 2",
+      "description": "アメリカへ行ってみたくて、オバマさんに会えるなら、本当にいいことですね。＾＾",
+      "defaultSticker": {
+        "id": "U3RpY2tlci0yMDY5OQ==",
+        "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUFPnOAOGky+SUvKyFd3Jca/5RlZb/vLdPlVBj0XDiNB4=.png"
+      },
+      "stickers": {
+        "edges": [
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDY5OQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCUFPnOAOGky+SUvKyFd3Jca/5RlZb/vLdPlVBj0XDiNB4=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwMA==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXcHIGGdqoUpUmCaIX0renco=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwMQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXSgIPy3WuOZ55oP8ojtUfGE=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwMg==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXZGPz6BFBqWddatp8rKuqmo=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwMw==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXeCFFJf0HsBAGdK7uZHKSAo=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwNA==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXapRb/ADzLsFiUudxq3wf6I=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwNQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXUr5k/b4z2fGw6rK8N9mXT0=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwNg==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXRwJKVOuByWwV8n6Ye/rwYs=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwNw==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXXOlv2qumjhSwhn4XgPDQQY=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwOA==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXRRaljX92xTBxugj6hVWb3k=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcwOQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXSAVHc0z4hLgWj7pqxmiV2M=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxMA==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXfVHh63tKWfzx2+jM+q6bK0=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxMQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXT76mtZ8rXeYODhCtiLtq3Q=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxMg==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXaJ3f8hWl5bBpfVFBxbmRsM=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxMw==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXQySq2I2brXbVBuSkL1UF2o=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxNA==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXUJwW287NyJYXzLFrvLeedc=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxNQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXUwJA0N+P1/rq9imAKG1Bww=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxNg==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXT7raE6in3prhctW6TPF+nA=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxNw==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXSE2oyKCJzdlZNeceF4Lh1M=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxOA==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXXrKKYMHjPV/+M4Jh8f8vyQ=.png"
+            }
+          },
+          {
+            "node": {
+              "id": "U3RpY2tlci0yMDcxOQ==",
+              "fileUrl": "https://cdn-stickers.mojilala.com/cld/j7S+d19qAItZjWLqxI2kNbu2BfjhZbcl8rJI5z+ux6S90/4sfEmHnpphl9ITlYY6mqxdsCYD7OsbgIAtpv9yk2luHNR4H28G3h5UaqDtxMaFwDIJpl898S4t8IBKls+BWD15U6wDFktK3IXoR37ORdCfi/XeByYonQKzxKSVJnNMm/7D7fJNeaYgJZRxuXCU2vZgwO2rduBwjN/yGWHZXTdQwrpyma8Kj8kETRICLDs=.png"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+
 ## Pagination
 
 You can paginate the connections.
